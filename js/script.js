@@ -6,8 +6,9 @@
 //   });
 
 const titleClickHandler = function (event) {
-//   console.log("Link was clicked!");
-//   console.log(event);
+  const clickedElement = this;
+  //   console.log("Link was clicked!");
+  //   console.log(event);
 
   /* remove class 'active' from all article links  */
 
@@ -18,6 +19,9 @@ const titleClickHandler = function (event) {
   }
 
   /* add class 'active' to the clicked link */
+  clickedElement.classList.add("active");
+
+  //   console.log("clickedElement:", clickedElement);
 
   /* remove class 'active' from all articles */
 
