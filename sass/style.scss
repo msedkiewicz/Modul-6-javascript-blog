@@ -4,6 +4,7 @@
 
 $color-light: #fff;
 $color-dark: #444;
+$color-black: #000;
 
 $font-logo: "Sacramento", cursive;
 $font-header: "Oswald", sans-serif;
@@ -18,7 +19,14 @@ $font-text: "Source Sans Pro", sans-serif;
 }
 
 body {
-  background: $color-light;
+  background: rgb(9, 9, 121);
+  background: linear-gradient(
+    90deg,
+    rgba(9, 9, 121, 1) 17%,
+    rgba(255, 255, 255, 1) 33%,
+    rgba(255, 255, 255, 1) 65%,
+    rgba(235, 19, 19, 1) 90%
+  );
   font-family: $font-text;
   color: $color-dark;
   font-weight: 300;
@@ -26,6 +34,9 @@ body {
   line-height: 1.7;
 }
 
+h1 {
+  color: $color-black;
+}
 .container {
   max-width: 1140px;
   margin: 0 auto;
@@ -85,7 +96,7 @@ body {
   padding: 0;
   .active {
     font-weight: bold;
-    color: #0543B0;
+    color: #0543b0;
   }
   a {
     text-decoration: none;
