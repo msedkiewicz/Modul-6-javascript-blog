@@ -1,11 +1,6 @@
 {
   ("use strict");
 
-  // document.getElementById('test-button').addEventListener('click', function(){
-  //     const links = document.querySelectorAll('.titles a');
-  //     console.log('links:', links);
-  //   });
-
   const titleClickHandler = function (event) {
     event.preventDefault();
     const clickedElement = this;
@@ -45,12 +40,6 @@
     targetArticle.classList.add("active");
   };
 
-  const links = document.querySelectorAll(".titles a");
-
-  for (let link of links) {
-    link.addEventListener("click", titleClickHandler);
-  }
-
   const optArticleSelector = ".post",
     optTitleSelector = ".post-title",
     optTitleListSelector = ".titles";
@@ -62,10 +51,11 @@
       titleList.innerHTML = "";
     };
     clearList();
-    /* for each article */
+    /* find all the articles and save them to variable: articles */
 
     const articles = document.querySelectorAll(optArticleSelector);
 
+    let html = "";
     for (let article of articles) {
       /* get the article id */
       const articleId = article.getAttribute("id");
@@ -79,8 +69,15 @@
         articleTitle +
         "</span></a></li>";
       // console.log(linkHTML);
-      /* insert link into titleList */
-      titleList.innerHTML = titleList.innerHTML + linkHTML;
+      /* insert link into html variable */
+      html = html + linkHTML;
+    }
+    // console.log(html)
+    titleList.innerHTML = html;
+    const links = document.querySelectorAll(".titles a");
+
+    for (let link of links) {
+      link.addEventListener("click", titleClickHandler);
     }
   }
 
