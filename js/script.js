@@ -70,10 +70,11 @@
         "</span></a></li>";
       // console.log(linkHTML);
       /* insert link into html variable */
-      html = html + linkHTML;
+      // html = html + linkHTML;
+      titleList.insertAdjacentHTML("beforeend", linkHTML)
     }
     // console.log(html)
-    titleList.innerHTML = html;
+    // titleList.innerHTML = html;
     const links = document.querySelectorAll(".titles a");
 
     for (let link of links) {
