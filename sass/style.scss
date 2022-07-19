@@ -37,6 +37,7 @@ body {
 h1 {
   color: $color-black;
 }
+
 .container {
   max-width: 1140px;
   margin: 0 auto;
@@ -47,6 +48,7 @@ h1 {
   text-transform: uppercase;
   font-family: $font-header;
   font-weight: 600;
+
   span {
     text-transform: none;
     font-weight: 400;
@@ -100,10 +102,12 @@ h1 {
   list-style-type: none;
   margin: 0;
   padding: 0;
+
   .active {
     font-weight: bold;
     color: #0543b0;
   }
+
   a {
     text-decoration: none;
     color: #000;
@@ -128,6 +132,7 @@ h1 {
 
 .post {
   display: none;
+
   &.active {
     display: block;
   }
@@ -139,6 +144,7 @@ h1 {
 
 .post-tags {
   display: flex;
+
   p {
     margin: 0 10px 0 0;
   }
