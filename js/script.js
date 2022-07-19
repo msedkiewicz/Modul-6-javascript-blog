@@ -86,28 +86,34 @@
 
   const generateTags = function (){
     /* find all articles */
+    const articles = document.querySelectorAll(optArticleSelector);
+    // console.log(articles);
 
     /* START LOOP: for every article: */
-
-    /* find tags wrapper */
-
-    /* make html variable with empty string */
-
-    /* get tags from data-tags attribute */
-
-    /* split tags into array */
-
-    /* START LOOP: for each tag */
-
-    /* generate HTML of the link */
+    for (let article of articles) {
+      /* find tags wrapper */
+      const titleList = article.querySelector(optArticleTagsSelector);
+      // console.log(titleList);
+      /* make html variable with empty string */
+      let html = '';
+      /* get tags from data-tags attribute */
+      const articleTags = article.getAttribute('data-tags');
+      // console.log(articleTags);
+      /* split tags into array */
+      const articleTagsArray = articleTags.split(' ');
+      // console.log(articleTagsArray);
+      /* START LOOP: for each tag */
+      for (let tag of articleTagsArray) {
+        // console.log(tag);
+        /* generate HTML of the link */
 
     /* add generated code to html variable */
-
+      }
     /* END LOOP: for each tag */
-
     /* insert HTML of all the links into the tags wrapper */
 
     /* END LOOP: for every article: */
+ }
   };
 
   generateTags();
