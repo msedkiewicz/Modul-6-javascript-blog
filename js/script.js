@@ -171,8 +171,7 @@
 
   generateTags();
 
-  const optAuthorSelector = '.post-author',
-    optAuthorsListSelector = '.authors';
+  const optArticleAuthorSelector = '.post-author';
 
   const generateAuthors = function () {
     /* find all articles */
@@ -181,7 +180,7 @@
     /* START LOOP: for every article: */
     for (let article of articles) {
       /* find author wrapper */
-      const authorWrapper = article.querySelector(optAuthorSelector);
+      const authorWrapper = article.querySelector(optArticleAuthorSelector);
       // console.log(authorWrapper);
       /* get authors from data-author attribute */
       const author = article.getAttribute('data-author');
@@ -197,28 +196,6 @@
       authorWrapper.innerHTML = linkHTML;
       /* END LOOP: for every article: */
     }
-
-
-    const generateAuthorsSection = function () {
-      const articles = document.querySelectorAll(optArticleSelector);
-      const titleList = document.querySelector(optTitleListSelector);
-      for (let article of articles) {
-        const authorWrapper = article.querySelector(optAuthorSelector);
-        let html = '';
-        const authors = article.getAttribute('data-author');
-        for (let author of authors) {
-          const linkHTML =
-            '<a href="#author-' +
-            author +
-            '">' +
-            author +
-            '</a>';
-          html = html + linkHTML;
-          titleList.innerHTML = html;
-        }
-      };
-    };
-    generateAuthorsSection();
 
     function authorClickHandler(event){
       /* prevent default action for this event */
@@ -248,7 +225,7 @@
       /* END LOOP: for each found author */
       }
       /* execute function "generateTitleLinks" with article selector as argument */
-      generateTitleLinks('[data-author~="' + author + '"]');
+      generateTitleLinks('[data-author="' + author + '"]');
     }
 
     function addClickListenersToAuthors(){
