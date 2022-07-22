@@ -143,7 +143,7 @@
       }
       /* find all tag links with "href" attribute equal to the "href" constant */
       const allTags = document.querySelectorAll(`a[href="${href}"]`);
-      console.log(allTags);
+      // console.log(allTags);
       /* START LOOP: for each found tag link */
       for (let singleTag of allTags) {
         /* add class active */
@@ -170,4 +170,12 @@
   };
 
   generateTags();
+
+  const optAuthorSelector = '.post-author'
+
+  const generateAuthors = function () {
+
+  };
+
+  generateAuthors();
 }
