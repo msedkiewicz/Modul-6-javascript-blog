@@ -171,10 +171,25 @@
 
   generateTags();
 
-  const optAuthorSelector = '.post-author'
+  const optAuthorSelector = '.post-author';
 
   const generateAuthors = function () {
+    /* find all articles */
+    const articles = document.querySelectorAll(optArticleSelector);
+    // console.log(articles);
+    /* START LOOP: for every article: */
+    for (let article of articles) {
+      /* find author wrapper */
+      const authorWrapper = article.querySelector(optAuthorSelector);
+      // console.log(authorWrapper);
+      /* get authors from data-author attribute */
+      const author = article.getAttribute('data-author');
+      // console.log(authors);
 
+      /* insert author to a paragraph */
+      authorWrapper.innerHTML = author;
+    /* END LOOP: for every article: */
+    }
   };
 
   generateAuthors();
