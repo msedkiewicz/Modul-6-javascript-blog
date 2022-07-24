@@ -83,6 +83,26 @@
     }
   };
 
+  const calculateTagsParams = function(tags) {
+    const params = {max:0, min: 999999};
+    for(let tag in tags){
+      // console.log(tag + ' is used ' + tags[tag] + ' times');
+      params.max = tags[tag] > params.max ? tags[tag] : params.max;
+      params.min = tags[tag] < params.min ? tags[tag] : params.min;
+    }
+    return params;
+  };
+  const optCloudClassCount = 5,
+    optCloudClassPrefix ='tag-size-';
+
+  const calculateTagClass = function(count, params) {
+    const normalizedCount = count - params.min;
+    const normalizedMax = params.max - params.min;
+    const percentage = normalizedCount / normalizedMax;
+    const classNumber = Math.floor(percentage * (optCloudClassCount - 1) + 1);
+    return optCloudClassPrefix + classNumber;
+  };
+
   const generateTags = function (){
     /* [NEW] create a new variable allTags with an empty object */
     let allTags = {};
@@ -135,10 +155,13 @@
       /* [NEW] create variable for all links HTML code */
       let allTagsHTML = '';
 
+      const tagsParams = calculateTagsParams(allTags);
+      console.log('tagsParams:', tagsParams);
+
       /* [NEW] START LOOP: for each tag in allTags: */
       for(let tag in allTags){
         /* [NEW] generate code of a link and add it to allTagsHTML */
-        allTagsHTML += '<a href="#tag-' + tag + '">' + tag + ' (' + allTags[tag] + ') ' + '</a>';
+        allTagsHTML += '<a href="#tag-' + tag + '" class="' + calculateTagClass(allTags[tag], tagsParams) +'">' + tag + ' (' + allTags[tag] + ') ' + '</a>';
       /* [NEW] END LOOP: for each tag in allTags: */
       }
       /*[NEW] add HTML from allTagsHTML to tagList */
