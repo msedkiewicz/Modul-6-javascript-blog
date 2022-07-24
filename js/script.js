@@ -85,7 +85,7 @@
 
   const generateTags = function (){
     /* [NEW] create a new variable allTags with an empty array */
-    let allTags = [];
+    let allTags = {};
 
     /* find all articles */
     const articles = document.querySelectorAll(optArticleSelector);
