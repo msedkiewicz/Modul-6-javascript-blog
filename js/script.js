@@ -215,9 +215,12 @@
     addClickListenersToTags();
   };
 
-  const optArticleAuthorSelector = '.post-author';
+  const optArticleAuthorSelector = '.post-author',
+    optAuthorsListSelector = '.authors.list';
 
   const generateAuthors = function () {
+    /* [NEW] create a new variable allAuthorsList with an empty object */
+    let allAuthorsList = {};
     /* find all articles */
     const articles = document.querySelectorAll(optArticleSelector);
     // console.log(articles);
@@ -238,7 +241,28 @@
         '</a>';
       /* insert author to a paragraph */
       authorWrapper.innerHTML = linkHTML;
-      /* END LOOP: for every article: */
+      /* [NEW] check if this link is NOT already in allAuthorsList */
+      if(!allAuthorsList[author]) {
+        /* [NEW] add generated code to allAuthorsList array */
+        allAuthorsList[author] = 1;
+      } else {
+        allAuthorsList[author]++;
+      }
+      /* END LOOP: for every article*/
+
+      /* [NEW] find list of authors in right column */
+      const authorsList = document.querySelector(optAuthorsListSelector);
+
+      /* [NEW] create variable for all links HTML code */
+      let allAuthorsListHTML = '';
+      /* [NEW] START LOOP: for each author in in allAuthorsList: */
+      for(let author in allAuthorsList){
+        /* [NEW] generate code of a link and add it to allAuthorsListHTML */
+        allAuthorsListHTML += '<li><a href="#author-' + author + '">' + author + ' (' + allAuthorsList[author] + ') ' + '</a></li>';
+      /* [NEW] END LOOP: for each author in in allAuthorsList: */
+      }
+      /*[NEW] add HTML from allAuthorsListHTML to tagList */
+      authorsList.innerHTML = allAuthorsListHTML;
     }
 
     function authorClickHandler(event){
