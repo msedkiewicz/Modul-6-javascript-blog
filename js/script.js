@@ -82,8 +82,6 @@
     }
   };
 
-  generateTitleLinks();
-
   const generateTags = function (){
     /* find all articles */
     const articles = document.querySelectorAll(optArticleSelector);
@@ -169,8 +167,6 @@
     addClickListenersToTags();
   };
 
-  generateTags();
-
   const optArticleAuthorSelector = '.post-author';
 
   const generateAuthors = function () {
@@ -243,6 +239,7 @@
     addClickListenersToAuthors();
   };
 
+  generateTitleLinks();
+  generateTags();
   generateAuthors();
-
 }
