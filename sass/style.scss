@@ -149,3 +149,33 @@ h1 {
     margin: 0 10px 0 0;
   }
 }
+
+/* Tags special classes. Reference: https://www.colorhexa.com/0040ff */
+
+.tags li {
+  display: inline;
+}
+.tags .active {
+  color:rgba(235, 19, 19, 1);
+}
+.tag-size-1 {
+  background-color: #ebf0ff;
+}
+
+.tag-size-2 {
+  font-size: 18px;
+  background-color: #c4d3ff;
+  padding: 2px;
+}
+
+.tag-size-3 {
+  font-size: 20px;
+  background-color: #9db6ff;
+  padding: 2px;
+}
+
+.tag-size-4 {
+  font-size: 22px;
+  background-color: #7698ff;
+  padding: 2px;
+}

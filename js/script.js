@@ -92,7 +92,7 @@
     }
     return params;
   };
-  const optCloudClassCount = 5,
+  const optCloudClassCount = 4,
     optCloudClassPrefix ='tag-size-';
 
   const calculateTagClass = function(count, params) {
@@ -161,7 +161,7 @@
       /* [NEW] START LOOP: for each tag in allTags: */
       for(let tag in allTags){
         /* [NEW] generate code of a link and add it to allTagsHTML */
-        allTagsHTML += '<a href="#tag-' + tag + '" class="' + calculateTagClass(allTags[tag], tagsParams) +'">' + tag + ' (' + allTags[tag] + ') ' + '</a>';
+        allTagsHTML += '<li><a href="#tag-' + tag + '" class="' + calculateTagClass(allTags[tag], tagsParams) +'">' + tag + ' (' + allTags[tag] + ') ' + '</a></li>';
       /* [NEW] END LOOP: for each tag in allTags: */
       }
       /*[NEW] add HTML from allTagsHTML to tagList */
