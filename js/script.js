@@ -51,14 +51,14 @@
     targetArticle.classList.add('active');
   };
 
-
+  const clearList = function (element) {
+    element.innerHTML = '';
+  };
   const generateTitleLinks = function (customSelector = '') {
     /* remove contents of titleList */
     const titleList = document.querySelector(opts.titleListSelector);
-    const clearList = function () {
-      titleList.innerHTML = '';
-    };
-    clearList();
+
+    clearList(titleList);
     /* find all the articles and save them to variable: articles */
 
     const articles = document.querySelectorAll(opts.articleSelector + customSelector);
