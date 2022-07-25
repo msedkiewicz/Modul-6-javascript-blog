@@ -3,7 +3,8 @@
   // Handlebars variables
 
   const templates = {
-    articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML)
+    articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
+    articleTag: Handlebars.compile(document.querySelector('#template-article-tags').innerHTML),
   };
 
 
@@ -152,12 +153,8 @@
       for (let tag of articleTagsArray) {
         // console.log(tag);
         /* generate HTML of the link */
-        const linkHTML =
-        '<li><a href="#tag-' +
-        tag +
-        '">' +
-        tag +
-        '</a></li> ';
+        const linkHTMLData = {tagHref: tag, tagName: tag};
+        const linkHTML = templates.articleTag(linkHTMLData);
         /* add generated code to html variable */
         html = html + linkHTML;
         /* [NEW] check if this link is NOT already in allTags */
