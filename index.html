@@ -376,6 +376,14 @@
     <script id="template-article-author" type="text/x-handlebars-template">
       <a href="#author-{{ authorsTag }}"><span>{{ authorsName }}</span></a>
     </script>
+    <script id="template-tag-cloud-link" type="text/x-handlebars-template">
+      {{#each tags}}
+      <li class="{{className}}">{{ tag }} ({{ count }})</li>
+      {{/each}}
+    </script>
+    <script id="authors-posts" type="text/x-handlebars-template">
+      <p>Lorem ipsumc 2</p>
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
     <script src="js/script.js"></script>
   </body>
