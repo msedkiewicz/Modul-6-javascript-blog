@@ -7,6 +7,7 @@
     articleTag: Handlebars.compile(document.querySelector('#template-article-tags').innerHTML),
     articleAuthor: Handlebars.compile(document.querySelector('#template-article-author').innerHTML),
     tagCloudLink: Handlebars.compile(document.querySelector('#template-tag-cloud-link').innerHTML),
+    articleAuthorList: Handlebars.compile(document.querySelector('#template-article-author-list').innerHTML),
   };
 
 
@@ -184,7 +185,6 @@
       /* [NEW] START LOOP: for each tag in allTags: */
       for(let tag in allTags){
         /* [NEW] generate code of a link and add it to allTagsHTML */
-        // let tagLinkHTML = '<li><a href="#tag-' + tag + '" class="' + calculateTagClass(allTags[tag], tagsParams) +'">' + tag + ' (' + allTags[tag] + ') ' + '</a></li>';
         allTagsData.tags.push({
           tag: tag,
           count: allTags[tag],
@@ -244,8 +244,6 @@
     addClickListenersToTags();
   };
 
-
-
   const generateAuthors = function () {
     /* [NEW] create a new variable allAuthorsList with an empty object */
     let allAuthorsList = {};
@@ -279,15 +277,20 @@
       const authorsList = document.querySelector(select.listOf.authors);
 
       /* [NEW] create variable for all links HTML code */
-      let allAuthorsListHTML = '';
+      const allAuthorsData = {authors: []};
       /* [NEW] START LOOP: for each author in in allAuthorsList: */
       for(let author in allAuthorsList){
         /* [NEW] generate code of a link and add it to allAuthorsListHTML */
-        allAuthorsListHTML += '<li><a href="#author-' + author + '">' + author + ' (' + allAuthorsList[author] + ') ' + '</a></li>';
+        // allAuthorsListHTML += '<li><a href="#author-' + author + '">' + author + ' (' + allAuthorsList[author] + ') ' + '</a></li>';
+        allAuthorsData.authors.push({
+          author: author,
+          count: allAuthorsList[author],
+        });
+
       /* [NEW] END LOOP: for each author in in allAuthorsList: */
       }
       /*[NEW] add HTML from allAuthorsListHTML to tagList */
-      authorsList.innerHTML = allAuthorsListHTML;
+      authorsList.innerHTML = templates.articleAuthorList(allAuthorsData);
     }
 
     function authorClickHandler(event){
