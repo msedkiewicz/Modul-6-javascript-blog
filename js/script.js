@@ -1,6 +1,13 @@
 {
   ('use strict');
+  // Handlebars variables
 
+  const templates = {
+    articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML)
+  };
+
+
+  // Other variables
   const opts = {
     tagSizes: {
       count: 4,
@@ -87,12 +94,8 @@
       /* find the title element and get the title from the title element */
       const articleTitle = article.querySelector(select.article.title).innerHTML;
       /* create HTML of the link */
-      const linkHTML =
-        '<li><a href="#' +
-        articleId +
-        '"><span>' +
-        articleTitle +
-        '</span></a></li>';
+      const linkHTMLData = {id: articleId, title: articleTitle};
+      const linkHTML = templates.articleLink(linkHTMLData);
       // console.log(linkHTML);
       /* insert link into html variable */
       html = html + linkHTML;
