@@ -39,6 +39,8 @@
     },
   };
 
+  // Functions
+
   const titleClickHandler = function (event) {
     event.preventDefault();
     const clickedElement = this;
@@ -281,7 +283,6 @@
       /* [NEW] START LOOP: for each author in in allAuthorsList: */
       for(let author in allAuthorsList){
         /* [NEW] generate code of a link and add it to allAuthorsListHTML */
-        // allAuthorsListHTML += '<li><a href="#author-' + author + '">' + author + ' (' + allAuthorsList[author] + ') ' + '</a></li>';
         allAuthorsData.authors.push({
           author: author,
           count: allAuthorsList[author],
