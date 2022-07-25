@@ -5,6 +5,7 @@
   const templates = {
     articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
     articleTag: Handlebars.compile(document.querySelector('#template-article-tags').innerHTML),
+    articleAuthor: Handlebars.compile(document.querySelector('#template-article-author').innerHTML),
   };
 
 
@@ -253,12 +254,9 @@
       const author = article.getAttribute('data-author');
       // console.log(authors);
       /* add author a clickable link */
-      const linkHTML =
-        '<a href="#author-' +
-        author +
-        '">' +
-        author +
-        '</a>';
+      const linkHTMLData = {authorsTag: author, authorsName: author};
+      const linkHTML = templates.articleAuthor(linkHTMLData);
+
       /* insert author to a paragraph */
       authorWrapper.innerHTML = linkHTML;
       /* [NEW] check if this link is NOT already in allAuthorsList */
